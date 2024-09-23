@@ -1341,7 +1341,7 @@ elif st.session_state.step == 12:
 
                 # Define input and output paths
                 template_file = "resources/ph_multiply_surrey.docx"
-                modified_file = f"MultiplyOxford_Form_Submission_{sanitize_filename(safe_first_name)}_{sanitize_filename(safe_family_name)}.docx"
+                modified_file = f"MultiplySurrey_Form_Submission_{sanitize_filename(safe_first_name)}_{sanitize_filename(safe_family_name)}.docx"
 
                 signature_path = f'signature_{sanitize_filename(safe_first_name)}_{sanitize_filename(safe_family_name)}.png'            
                 resized_image_path = f'resized_signature_image_{sanitize_filename(safe_first_name)}_{sanitize_filename(safe_family_name)}.png'
@@ -1390,9 +1390,9 @@ elif st.session_state.step == 12:
 
                 # learner_email = [st.session_state.email]
                 
-                # subject_team = f"MultiplyOxford: {st.session_state.selected_option} {st.session_state.hear_about}_{st.session_state.hother_source}_{st.session_state.forename}_{st.session_state.surname} Submission Date: {date.today()}"
-                subject_team = f"MultiplyOxford: {st.session_state.forename}_{st.session_state.surname} Submission Date: {date.today()}"
-                body_team = f'''Prevista Multiply Oxford Form submitted. Please find attached file. \n{requests.get("https://api.ipify.org/?format=json").json()["ip"]}'''
+                # subject_team = f"MultiplySurrey: {st.session_state.selected_option} {st.session_state.hear_about}_{st.session_state.hother_source}_{st.session_state.forename}_{st.session_state.surname} Submission Date: {date.today()}"
+                subject_team = f"MultiplySurrey: {st.session_state.forename}_{st.session_state.surname} Submission Date: {date.today()}"
+                body_team = f'''Prevista Multiply Surrey Form submitted. Please find attached file. \n{requests.get("https://api.ipify.org/?format=json").json()["ip"]}'''
 
                 # subject_learner = "Thank You for Your Interest in The Skills Bootcamp!"
                 body_learner = f"""
