@@ -395,7 +395,7 @@ if st.session_state.step == 1:
     #         st.warning("Please Choose Valid Support Option.")
 
     if st.button("Next"):
-        st.session_state.step = 2
+        st.session_state.step = 3
         st.experimental_rerun()
 
 elif st.session_state.step == 2:
