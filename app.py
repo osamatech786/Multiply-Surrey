@@ -398,103 +398,103 @@ if st.session_state.step == 1:
         st.session_state.step = 3
         st.experimental_rerun()
 
-elif st.session_state.step == 2:
-    st.title("> Section 1: SESSION | COURSE DETAILS ")
+# elif st.session_state.step == 2:
+#     st.title("> Section 1: SESSION | COURSE DETAILS ")
 
-    # Section 1a: Engagement Session Details (less than 2hrs)
-    st.subheader("Section 1a: ENGAGEMENT SESSION DETAILS (less than 2hrs)")
-    st.session_state.course_title_1a = st.text_input("Course Title (less than 2hrs)", value=st.session_state.get("course_title_1a", ""))
-    st.session_state.delivery_location_1a = st.text_input("Delivery Location (less than 2hrs)", value=st.session_state.get("delivery_location_1a", ""))
+#     # Section 1a: Engagement Session Details (less than 2hrs)
+#     st.subheader("Section 1a: ENGAGEMENT SESSION DETAILS (less than 2hrs)")
+#     st.session_state.course_title_1a = st.text_input("Course Title (less than 2hrs)", value=st.session_state.get("course_title_1a", ""))
+#     st.session_state.delivery_location_1a = st.text_input("Delivery Location (less than 2hrs)", value=st.session_state.get("delivery_location_1a", ""))
     
-    # Handle Start Date and End Date as date objects
-    if isinstance(st.session_state.get("start_date_1a"), str):
-        st.session_state.start_date_1a = datetime.strptime(st.session_state.get("start_date_1a"), "%d-%m-%Y").date()
-    if isinstance(st.session_state.get("end_date_1a"), str):
-        st.session_state.end_date_1a = datetime.strptime(st.session_state.get("end_date_1a"), "%d-%m-%Y").date()
+#     # Handle Start Date and End Date as date objects
+#     if isinstance(st.session_state.get("start_date_1a"), str):
+#         st.session_state.start_date_1a = datetime.strptime(st.session_state.get("start_date_1a"), "%d-%m-%Y").date()
+#     if isinstance(st.session_state.get("end_date_1a"), str):
+#         st.session_state.end_date_1a = datetime.strptime(st.session_state.get("end_date_1a"), "%d-%m-%Y").date()
 
-    st.session_state.start_date_1a = st.date_input("Start Date (less than 2hrs)", value=st.session_state.get("start_date_1a"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose a start date", format="DD/MM/YYYY")
-    st.session_state.end_date_1a = st.date_input("End Date (less than 2hrs)", value=st.session_state.get("end_date_1a"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose an end date", format="DD/MM/YYYY")
+#     st.session_state.start_date_1a = st.date_input("Start Date (less than 2hrs)", value=st.session_state.get("start_date_1a"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose a start date", format="DD/MM/YYYY")
+#     st.session_state.end_date_1a = st.date_input("End Date (less than 2hrs)", value=st.session_state.get("end_date_1a"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose an end date", format="DD/MM/YYYY")
 
-    st.session_state.num_hours_1a = st.number_input("No. of hours (less than 2hrs)", min_value=0, value=st.session_state.get("num_hours_1a", 0))
+#     st.session_state.num_hours_1a = st.number_input("No. of hours (less than 2hrs)", min_value=0, value=st.session_state.get("num_hours_1a", 0))
 
-    # Section 1b: Substantive Numeracy Delivery Course (more than 2 hrs course)
-    st.subheader("Section 1b: SUBSTANTIVE NUMERACY DELIVERY COURSE DETAILS (more than 2 hrs)")
-    st.session_state.course_code_1b = st.text_input("Course Code (more than 2hrs)", value=st.session_state.get("course_code_1b", ""))
-    st.session_state.course_title_1b = st.text_input("Course Title (more than 2hrs)", value=st.session_state.get("course_title_1b", ""))
-    st.session_state.delivery_location_1b = st.text_input("Delivery Location (more than 2hrs)", value=st.session_state.get("delivery_location_1b", ""))
+#     # Section 1b: Substantive Numeracy Delivery Course (more than 2 hrs course)
+#     st.subheader("Section 1b: SUBSTANTIVE NUMERACY DELIVERY COURSE DETAILS (more than 2 hrs)")
+#     st.session_state.course_code_1b = st.text_input("Course Code (more than 2hrs)", value=st.session_state.get("course_code_1b", ""))
+#     st.session_state.course_title_1b = st.text_input("Course Title (more than 2hrs)", value=st.session_state.get("course_title_1b", ""))
+#     st.session_state.delivery_location_1b = st.text_input("Delivery Location (more than 2hrs)", value=st.session_state.get("delivery_location_1b", ""))
     
-    # Handle Start Date and End Date as date objects
-    if isinstance(st.session_state.get("start_date_1b"), str):
-        st.session_state.start_date_1b = datetime.strptime(st.session_state.get("start_date_1b"), "%d-%m-%Y").date()
-    if isinstance(st.session_state.get("end_date_1b"), str):
-        st.session_state.end_date_1b = datetime.strptime(st.session_state.get("end_date_1b"), "%d-%m-%Y").date()
+#     # Handle Start Date and End Date as date objects
+#     if isinstance(st.session_state.get("start_date_1b"), str):
+#         st.session_state.start_date_1b = datetime.strptime(st.session_state.get("start_date_1b"), "%d-%m-%Y").date()
+#     if isinstance(st.session_state.get("end_date_1b"), str):
+#         st.session_state.end_date_1b = datetime.strptime(st.session_state.get("end_date_1b"), "%d-%m-%Y").date()
 
-    st.session_state.start_date_1b = st.date_input("Start Date (more than 2hrs)", value=st.session_state.get("start_date_1b"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose a start date", format="DD/MM/YYYY")
-    st.session_state.end_date_1b = st.date_input("End Date (more than 2hrs)", value=st.session_state.get("end_date_1b"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose an end date", format="DD/MM/YYYY")
+#     st.session_state.start_date_1b = st.date_input("Start Date (more than 2hrs)", value=st.session_state.get("start_date_1b"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose a start date", format="DD/MM/YYYY")
+#     st.session_state.end_date_1b = st.date_input("End Date (more than 2hrs)", value=st.session_state.get("end_date_1b"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose an end date", format="DD/MM/YYYY")
 
-    st.session_state.hours_per_week_1b = st.number_input("Hours per Week (more than 2hrs)", min_value=0, value=st.session_state.get("hours_per_week_1b", 0))
-    st.session_state.total_weeks_1b = st.number_input("Total weeks (more than 2hrs)", min_value=0, value=st.session_state.get("total_weeks_1b", 0))
-    st.session_state.total_glh_1b = st.number_input("Total GLH (more than 2hrs)", min_value=0, value=st.session_state.get("total_glh_1b", 0))
+#     st.session_state.hours_per_week_1b = st.number_input("Hours per Week (more than 2hrs)", min_value=0, value=st.session_state.get("hours_per_week_1b", 0))
+#     st.session_state.total_weeks_1b = st.number_input("Total weeks (more than 2hrs)", min_value=0, value=st.session_state.get("total_weeks_1b", 0))
+#     st.session_state.total_glh_1b = st.number_input("Total GLH (more than 2hrs)", min_value=0, value=st.session_state.get("total_glh_1b", 0))
 
-    # Section 1c: Intervention 5 - Functional Skills Qualification (If applicable)
-    st.subheader("Section 1c: INTERVENTION 5: FUNCTIONAL SKILLS QUALIFICATION (If applicable)")
-    st.session_state.course_code_1c = st.text_input("Course Code (If applicable)", value=st.session_state.get("course_code_1c", ""))
-    st.session_state.course_title_1c = st.text_input("Course Title (If applicable)", value=st.session_state.get("course_title_1c", ""))
-    st.session_state.delivery_location_1c = st.text_input("Delivery Location (If applicable)", value=st.session_state.get("delivery_location_1c", ""))
+#     # Section 1c: Intervention 5 - Functional Skills Qualification (If applicable)
+#     st.subheader("Section 1c: INTERVENTION 5: FUNCTIONAL SKILLS QUALIFICATION (If applicable)")
+#     st.session_state.course_code_1c = st.text_input("Course Code (If applicable)", value=st.session_state.get("course_code_1c", ""))
+#     st.session_state.course_title_1c = st.text_input("Course Title (If applicable)", value=st.session_state.get("course_title_1c", ""))
+#     st.session_state.delivery_location_1c = st.text_input("Delivery Location (If applicable)", value=st.session_state.get("delivery_location_1c", ""))
     
-    # Handle Start Date and End Date as date objects
-    if isinstance(st.session_state.get("start_date_1c"), str):
-        st.session_state.start_date_1c = datetime.strptime(st.session_state.get("start_date_1c"), "%d-%m-%Y").date()
-    if isinstance(st.session_state.get("end_date_1c"), str):
-        st.session_state.end_date_1c = datetime.strptime(st.session_state.get("end_date_1c"), "%d-%m-%Y").date()
+#     # Handle Start Date and End Date as date objects
+#     if isinstance(st.session_state.get("start_date_1c"), str):
+#         st.session_state.start_date_1c = datetime.strptime(st.session_state.get("start_date_1c"), "%d-%m-%Y").date()
+#     if isinstance(st.session_state.get("end_date_1c"), str):
+#         st.session_state.end_date_1c = datetime.strptime(st.session_state.get("end_date_1c"), "%d-%m-%Y").date()
 
-    st.session_state.start_date_1c = st.date_input("Start Date (If applicable)", value=st.session_state.get("start_date_1c"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose a start date", format="DD/MM/YYYY")
-    st.session_state.end_date_1c = st.date_input("End Date (If applicable)", value=st.session_state.get("end_date_1c"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose an end date", format="DD/MM/YYYY")
+#     st.session_state.start_date_1c = st.date_input("Start Date (If applicable)", value=st.session_state.get("start_date_1c"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose a start date", format="DD/MM/YYYY")
+#     st.session_state.end_date_1c = st.date_input("End Date (If applicable)", value=st.session_state.get("end_date_1c"), min_value=date(1900, 1, 1), max_value=date.today(), help="Choose an end date", format="DD/MM/YYYY")
 
-    st.session_state.hours_per_week_1c = st.number_input("Hours per Week (If applicable)", min_value=0, value=st.session_state.get("hours_per_week_1c", 0))
-    st.session_state.total_weeks_1c = st.number_input("Total weeks (If applicable)", min_value=0, value=st.session_state.get("total_weeks_1c", 0))
-    st.session_state.total_glh_1c = st.number_input("Total GLH (If applicable)", min_value=0, value=st.session_state.get("total_glh_1c", 0))
+#     st.session_state.hours_per_week_1c = st.number_input("Hours per Week (If applicable)", min_value=0, value=st.session_state.get("hours_per_week_1c", 0))
+#     st.session_state.total_weeks_1c = st.number_input("Total weeks (If applicable)", min_value=0, value=st.session_state.get("total_weeks_1c", 0))
+#     st.session_state.total_glh_1c = st.number_input("Total GLH (If applicable)", min_value=0, value=st.session_state.get("total_glh_1c", 0))
 
-    # Next and Back buttons for navigation (in sequence, no columns)
-    next_clicked = st.button("Next")
-    back_clicked = st.button("Back")
+#     # Next and Back buttons for navigation (in sequence, no columns)
+#     next_clicked = st.button("Next")
+#     back_clicked = st.button("Back")
 
-    # Handle Next button click
-    if next_clicked:
-        # Mandatory check for section 1a and 1b
-        if (st.session_state.course_title_1a and
-            st.session_state.delivery_location_1a and
-            st.session_state.start_date_1a and
-            st.session_state.end_date_1a and
-            st.session_state.num_hours_1a and
-            st.session_state.course_code_1b and
-            st.session_state.course_title_1b and
-            st.session_state.delivery_location_1b and
-            st.session_state.start_date_1b and
-            st.session_state.end_date_1b and
-            st.session_state.hours_per_week_1b and
-            st.session_state.total_weeks_1b and
-            st.session_state.total_glh_1b):
+#     # Handle Next button click
+#     if next_clicked:
+#         # Mandatory check for section 1a and 1b
+#         if (st.session_state.course_title_1a and
+#             st.session_state.delivery_location_1a and
+#             st.session_state.start_date_1a and
+#             st.session_state.end_date_1a and
+#             st.session_state.num_hours_1a and
+#             st.session_state.course_code_1b and
+#             st.session_state.course_title_1b and
+#             st.session_state.delivery_location_1b and
+#             st.session_state.start_date_1b and
+#             st.session_state.end_date_1b and
+#             st.session_state.hours_per_week_1b and
+#             st.session_state.total_weeks_1b and
+#             st.session_state.total_glh_1b):
             
-            # Convert dates to "DD-MM-YYYY" format before proceeding to the next step
-            st.session_state.start_date_1a = st.session_state.start_date_1a.strftime("%d-%m-%Y")
-            st.session_state.end_date_1a = st.session_state.end_date_1a.strftime("%d-%m-%Y")
-            st.session_state.start_date_1b = st.session_state.start_date_1b.strftime("%d-%m-%Y")
-            st.session_state.end_date_1b = st.session_state.end_date_1b.strftime("%d-%m-%Y")
-            if st.session_state.start_date_1c:
-                st.session_state.start_date_1c = st.session_state.start_date_1c.strftime("%d-%m-%Y")
-            if st.session_state.end_date_1c:
-                st.session_state.end_date_1c = st.session_state.end_date_1c.strftime("%d-%m-%Y")
+#             # Convert dates to "DD-MM-YYYY" format before proceeding to the next step
+#             st.session_state.start_date_1a = st.session_state.start_date_1a.strftime("%d-%m-%Y")
+#             st.session_state.end_date_1a = st.session_state.end_date_1a.strftime("%d-%m-%Y")
+#             st.session_state.start_date_1b = st.session_state.start_date_1b.strftime("%d-%m-%Y")
+#             st.session_state.end_date_1b = st.session_state.end_date_1b.strftime("%d-%m-%Y")
+#             if st.session_state.start_date_1c:
+#                 st.session_state.start_date_1c = st.session_state.start_date_1c.strftime("%d-%m-%Y")
+#             if st.session_state.end_date_1c:
+#                 st.session_state.end_date_1c = st.session_state.end_date_1c.strftime("%d-%m-%Y")
 
-            st.session_state.step = 3
-            st.experimental_rerun()
-        else:
-            st.warning("Please fill in all mandatory fields in Section 1a and 1b before proceeding.")
+#             st.session_state.step = 3
+#             st.experimental_rerun()
+#         else:
+#             st.warning("Please fill in all mandatory fields in Section 1a and 1b before proceeding.")
 
-    # Handle Back button click
-    if back_clicked:
-        st.session_state.step = 1  # Go back to the previous step
-        st.experimental_rerun()
+#     # Handle Back button click
+#     if back_clicked:
+#         st.session_state.step = 1  # Go back to the previous step
+#         st.experimental_rerun()
 
 elif st.session_state.step == 3:
     st.title("> Section 2: PERSONAL DETAILS")
@@ -592,7 +592,7 @@ elif st.session_state.step == 3:
 
     # Handle Back button click
     if back_clicked:
-        st.session_state.step = 2  # Go back to the previous step (Section 1)
+        st.session_state.step = 1  # Go back to the previous step (Section 1)
         st.experimental_rerun()
 
 
