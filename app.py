@@ -12,6 +12,8 @@ import shutil
 import re
 import time
 import requests
+from dotenv import load_dotenv
+import os
 
 # Set page configuration with a favicon
 st.set_page_config(
@@ -20,6 +22,22 @@ st.set_page_config(
     layout="centered"  # "centered" or "wide"
 )
 
+# add render support along with st.secret
+def get_secret(key):
+    try:
+        load_dotenv()
+        # Attempt to get the secret from environment variables
+        secret = os.environ.get(key)
+        if secret is None:
+            raise ValueError("Secret not found in environment variables")
+        return secret
+    except (ValueError, TypeError) as e:
+        # If an error occurs, fall back to Streamlit secrets
+        if hasattr(st, 'secrets'):
+            return st.secrets.get(key)
+        # If still not found, return None or handle as needed
+        return None
+    
 # Initialize session state
 if 'step' not in st.session_state:
     st.session_state.step = 1
@@ -63,7 +81,7 @@ if 'step' not in st.session_state:
     if 'current_address' not in st.session_state: st.session_state.current_address = ""
     if 'town' not in st.session_state: st.session_state.town = ""
     if 'postcode' not in st.session_state: st.session_state.postcode = ""
-    if 'previous_postcodes' not in st.session_state: st.session_state.previous_postcodes = []
+    if 'previous_postcodes' not in st.session_state: st.session_state.previous_postcodes = [""] * 3  # Ensure 3 empty strings for 3 postcodes
     if 'telephone' not in st.session_state: st.session_state.telephone = ""
     if 'email' not in st.session_state: st.session_state.email = ""
 
@@ -549,11 +567,16 @@ elif st.session_state.step == 3:
     st.session_state.postcode = st.text_input("Postcode", value=st.session_state.get("postcode", ""))
 
     # Previous Postcodes (Optional, up to 3)
-    st.session_state.previous_postcodes = []
     for i in range(3):
-        prev_postcode = st.text_input(f"Previous Postcode since 2010 #{i + 1} (if different from current)", value=st.session_state.get(f"previous_postcode_{i+1}", ""))
-        if prev_postcode:
-            st.session_state.previous_postcodes.append(prev_postcode)
+        # Ensure the list has at least 3 elements before accessing
+        if len(st.session_state.previous_postcodes) < 3:
+            st.session_state.previous_postcodes.extend([""] * (3 - len(st.session_state.previous_postcodes)))
+        # Use the previously stored value for each postcode
+        prev_postcode = st.text_input(f"Previous Postcode since 2010 #{i + 1} (if different from current)", 
+                                    value=st.session_state.previous_postcodes[i])
+        # Update the session state with the input value
+        st.session_state.previous_postcodes[i] = prev_postcode
+
 
     # Telephone Number
     st.session_state.telephone = st.text_input("Telephone Number", value=st.session_state.get("telephone", ""))
@@ -1376,9 +1399,12 @@ elif st.session_state.step == 12:
                 # Credentials: Streamlit host st.secrets
                 # sender_email = 'dummy'
                 # sender_password = 'dummy'
-                sender_email = st.secrets["sender_email"]
-                sender_password = st.secrets["sender_password"]
+                # sender_email = st.secrets["sender_email"]
+                # sender_password = st.secrets["sender_password"]
 
+                sender_email = get_secret("sender_email")
+                sender_password = get_secret("sender_password")
+                
                 # Credentials: Local env
                 # load_dotenv()                                     # uncomment import of this library!
                 # sender_email = os.getenv('EMAIL')
