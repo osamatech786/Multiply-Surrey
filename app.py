@@ -14,8 +14,6 @@ import time
 import requests
 from dotenv import load_dotenv
 import os
-from dotenv import load_dotenv
-import os
 
 # Set page configuration with a favicon
 st.set_page_config(
@@ -23,23 +21,6 @@ st.set_page_config(
     page_icon="https://lirp.cdn-website.com/d8120025/dms3rep/multi/opt/social-image-88w.png", 
     layout="centered"  # "centered" or "wide"
 )
-
-# add render support along with st.secret
-def get_secret(key):
-    try:
-        load_dotenv()
-        # Attempt to get the secret from environment variables
-        secret = os.environ.get(key)
-        if secret is None:
-            raise ValueError("Secret not found in environment variables")
-        return secret
-    except (ValueError, TypeError) as e:
-        # If an error occurs, fall back to Streamlit secrets
-        if hasattr(st, 'secrets'):
-            return st.secrets.get(key)
-        # If still not found, return None or handle as needed
-        return None
-    
 
 # add render support along with st.secret
 def get_secret(key):
