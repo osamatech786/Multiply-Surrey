@@ -1363,7 +1363,7 @@ elif st.session_state.step == 12:
                 safe_family_name = st.session_state.surname.strip().replace(" ", "_").lower()
 
                 # Define input and output paths
-                template_file = "resources/ph_multiply_surrey.docx"
+                template_file = "resources/ph_multiply_surrey_v2.docx"
                 modified_file = f"MultiplySurrey_Form_Submission_{sanitize_filename(safe_first_name)}_{sanitize_filename(safe_family_name)}.docx"
 
                 signature_path = f'signature_{sanitize_filename(safe_first_name)}_{sanitize_filename(safe_family_name)}.png'            
