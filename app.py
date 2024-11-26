@@ -14,6 +14,8 @@ import time
 import requests
 from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+import os
 
 # Set page configuration with a favicon
 st.set_page_config(
@@ -21,6 +23,23 @@ st.set_page_config(
     page_icon="https://lirp.cdn-website.com/d8120025/dms3rep/multi/opt/social-image-88w.png", 
     layout="centered"  # "centered" or "wide"
 )
+
+# add render support along with st.secret
+def get_secret(key):
+    try:
+        load_dotenv()
+        # Attempt to get the secret from environment variables
+        secret = os.environ.get(key)
+        if secret is None:
+            raise ValueError("Secret not found in environment variables")
+        return secret
+    except (ValueError, TypeError) as e:
+        # If an error occurs, fall back to Streamlit secrets
+        if hasattr(st, 'secrets'):
+            return st.secrets.get(key)
+        # If still not found, return None or handle as needed
+        return None
+    
 
 # add render support along with st.secret
 def get_secret(key):
@@ -1363,7 +1382,7 @@ elif st.session_state.step == 12:
                 safe_family_name = st.session_state.surname.strip().replace(" ", "_").lower()
 
                 # Define input and output paths
-                template_file = "resources/ph_multiply_surrey.docx"
+                template_file = "resources/ph_multiply_surrey_v2.docx"
                 modified_file = f"MultiplySurrey_Form_Submission_{sanitize_filename(safe_first_name)}_{sanitize_filename(safe_family_name)}.docx"
 
                 signature_path = f'signature_{sanitize_filename(safe_first_name)}_{sanitize_filename(safe_family_name)}.png'            
@@ -1404,7 +1423,7 @@ elif st.session_state.step == 12:
 
                 sender_email = get_secret("sender_email")
                 sender_password = get_secret("sender_password")
-
+                
                 # Credentials: Local env
                 # load_dotenv()                                     # uncomment import of this library!
                 # sender_email = os.getenv('EMAIL')
@@ -1417,7 +1436,7 @@ elif st.session_state.step == 12:
                 # learner_email = [st.session_state.email]
                 
                 # subject_team = f"MultiplySurrey: {st.session_state.selected_option} {st.session_state.hear_about}_{st.session_state.hother_source}_{st.session_state.forename}_{st.session_state.surname} Submission Date: {date.today()}"
-                subject_team = f"MultiplySurrey GMC: {st.session_state.forename}_{st.session_state.surname} Submission Date: {date.today()}"
+                subject_team = f"MultiplySurrey PTC: {st.session_state.forename}_{st.session_state.surname} Submission Date: {date.today()}"
                 body_team = f'''Prevista Multiply Surrey Form submitted. Please find attached file.'''
 
                 # subject_learner = "Thank You for Your Interest in The Skills Bootcamp!"
