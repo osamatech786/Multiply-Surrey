@@ -1436,7 +1436,7 @@ elif st.session_state.step == 12:
                 # learner_email = [st.session_state.email]
                 
                 # subject_team = f"MultiplySurrey: {st.session_state.selected_option} {st.session_state.hear_about}_{st.session_state.hother_source}_{st.session_state.forename}_{st.session_state.surname} Submission Date: {date.today()}"
-                subject_team = f"MultiplySurrey PTC: {st.session_state.forename}_{st.session_state.surname} Submission Date: {date.today()}"
+                subject_team = f"MultiplySurrey GMC: {st.session_state.forename}_{st.session_state.surname} Submission Date: {date.today()}"
                 body_team = f'''Prevista Multiply Surrey Form submitted. Please find attached file.'''
 
                 # subject_learner = "Thank You for Your Interest in The Skills Bootcamp!"
