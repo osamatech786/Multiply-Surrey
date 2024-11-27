@@ -343,7 +343,7 @@ st.progress(progress)
 if st.session_state.step == 1:
     st.image('resources/header.png', use_column_width=True)
 
-    st.title("LEARNING AGREEMENT 2023 / 2024")
+    st.title("LEARNING AGREEMENT 2024 / 2025")
     # st.write("Provider: Prevista Ltd. | Sponsor: Surrey County Council | Website: www.prevista.co.uk")
     # st.write("________________________________________")
     # st.write("**Application and Enrollment Form**")
